@@ -49,6 +49,14 @@ file(
 
 add_executable(conformance_cli ${LOCAL_SOURCE} ${LOCAL_HEADERS})
 
+set_target_properties(
+    conformance_cli
+    PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY $<TARGET_PROPERTY:conformance_cli,BINARY_DIR>
+        LIBRARY_OUTPUT_DIRECTORY $<TARGET_PROPERTY:conformance_cli,BINARY_DIR>
+        ARCHIVE_OUTPUT_DIRECTORY $<TARGET_PROPERTY:conformance_cli,BINARY_DIR>
+)
+
 source_group("Headers" FILES ${LOCAL_HEADERS})
 
 add_dependencies(conformance_cli conformance_test)
